@@ -6,3 +6,5 @@ urlpatterns = [
     path('api/', views.APIView.as_view(), name='api'),
     path('stats/', views.StatsView.as_view(), name='stats'),
 ]
+
+app_name = 'woordeboek'
