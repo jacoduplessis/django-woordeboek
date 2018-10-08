@@ -8,6 +8,7 @@ setup(
         "beautifulsoup4",
         "html2text",
         "bleach",
+        "requests",
     ],
     package_data={
         'woordeboek': [
