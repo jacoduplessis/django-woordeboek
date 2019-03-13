@@ -178,6 +178,10 @@ def get_many_json(reqs: List[Request]):
     return pool.map(get_json_req, reqs)
 
 
+def normalize(s: str):
+    return s.lower().replace(',', '').replace('.', '').strip()
+
+
 def vertaal(q, include_raw=False):
     reqs = []
     for target in TRANSLATION.keys():
@@ -192,7 +196,8 @@ def vertaal(q, include_raw=False):
         if '_status' in response and response['_status'] != 200:
             continue
         markup = response.get('_message')
-        if markup == q or markup.rstrip('.') == q:
+
+        if normalize(markup) == normalize(q):
             # when no results are found it returns the original query
             continue
         result = {
