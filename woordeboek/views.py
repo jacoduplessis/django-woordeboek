@@ -81,5 +81,5 @@ class StatsView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['queries'] = Query.objects.all().order_by('-time_created')[:100]
+        context['queries'] = Query.objects.all().order_by('-time_created')[:300]
         return context
